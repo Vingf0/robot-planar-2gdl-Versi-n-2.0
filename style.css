@@ -1,0 +1,153 @@
+:root{
+  --bg:#000;               
+  --panel:#0c0f14;         
+  --card:#121826;          
+  --text:#e6f1ff;          
+  --muted:#8ca3c7;          
+  --line:#1e293b;         
+  --accent:#00f0ff;        
+  --accent2:#00ffa3;      
+  --warn:#ffb020;          
+  --glow: 0 0 18px rgba(0,255,240,.35), 0 0 42px rgba(0,255,163,.15);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+               'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji',
+               'Segoe UI Emoji';
+  color:var(--text);
+  background:
+     radial-gradient(900px 600px at 20% -10%, #041018 10%, transparent 60%),
+     radial-gradient(600px 900px at 110% 30%, #07131d 10%, transparent 60%),
+     var(--bg);
+  background-attachment: fixed;
+}
+
+.top{
+  padding:16px 24px;
+  border-bottom:1px solid #142032;
+  background:linear-gradient(180deg, rgba(2,6,12,.85), rgba(2,6,12,.65));
+  position:sticky; top:0; z-index:5;
+  backdrop-filter: blur(8px);
+}
+.top h1{
+  margin:0; font-size:1.35rem; letter-spacing:.3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow: 0 0 18px rgba(0,255,240,.25);
+}
+.subtitle{margin:6px 0 0; color:var(--muted)}
+
+.layout{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding:18px;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:18px;
+}
+.left,.right{
+  background: linear-gradient(180deg, rgba(3,9,18,.6), rgba(3,9,18,.35));
+  border:1px solid #122033;
+  border-radius:14px;
+  padding:14px;
+  box-shadow: var(--glow);
+}
+
+.canvas-wrap{
+  background: radial-gradient(800px 400px at 20% -10%, #06131c 10%, transparent 60%),
+             radial-gradient(500px 900px at 115% 40%, #07131d 10%, transparent 60%),
+             var(--card);
+  border:1px solid #1a2a41;
+  border-radius:12px;
+  padding:8px;
+  box-shadow: inset 0 0 0 1px #0b1828, 0 0 0 1px rgba(0,255,240,.06);
+}
+
+.controls{
+  border:1px solid #1a2a41;
+  background: linear-gradient(180deg, rgba(7,12,20,.7), rgba(7,12,20,.45));
+  border-radius:12px;
+  padding:12px;
+  margin-top:12px;
+}
+.controls legend{color:var(--muted)}
+.row{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:10px 0}
+
+label{color:var(--muted); font-size:.92rem}
+
+input,select,button{
+  color:var(--text);
+  border:1px solid #22324a;
+  background: #070d14;
+  border-radius:10px;
+  padding:9px 12px;
+  outline:none;
+  transition: .15s ease;
+}
+input:focus, select:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,255,240,.15);
+}
+
+button{
+  background: linear-gradient(90deg, #00f0ff, #00ffa3);
+  color:#001018; border:none; font-weight:700; letter-spacing:.2px;
+  cursor:pointer; box-shadow: 0 0 22px rgba(0,255,240,.18);
+}
+button#btnHome{ background: linear-gradient(90deg, #00ffa3, #21e6a2) }
+button#btnClear{ background: linear-gradient(90deg, #ffb020, #ff7a18); color:#120700 }
+button:hover{ transform: translateY(-1px); filter:brightness(1.04) }
+button:active{ transform: translateY(0) }
+
+small{ color:var(--muted) }
+.details{
+  margin-top:12px;
+  background:#070d14;
+  border:1px dashed #1e3350;
+  border-radius:10px; padding:10px; color:#a7c0e6;
+}
+
+
+.plot{
+  margin-bottom:16px;
+  background: radial-gradient(600px 400px at 110% -20%, #0b1a28 0%, transparent 60%),
+             #121826;              
+  border:1px solid #1a2a41;
+  border-radius:12px;
+  padding:12px;
+  box-shadow: inset 0 0 0 1px #0b1828, 0 0 0 1px rgba(0,255,240,.06);
+  height: 320px;                   
+  display: flex;
+  flex-direction: column;
+}
+
+.plot canvas{
+  flex: 1 1 auto;
+  background: #0b1220;           
+  border-radius: 10px;
+}
+
+
+.plot h3{
+  margin:4px 0 10px;
+  font-size:1.1rem;
+  font-weight:700;
+  color:#cfeaff;
+  text-shadow: 0 0 12px rgba(0,255,240,.18);
+}
+
+
+.foot{
+  max-width:1280px; margin:18px auto;
+  color:var(--muted); text-align:center;
+  padding:12px; border-top:1px solid #132032;
+}
+
+
+@media (min-width:1200px){
+  .plot{ height: 380px; }
+}

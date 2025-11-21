@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Robot Planar 2 GDL – EP2 Dinámica + PD</title>
+  <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1>Robot Planar 2 GDL – Dinámica + Control PD</h1>
+    <p class="subtitle">EP2 • l1=0.36 m • l2=0.38 m • m1=3.48 kg • m2=7.5 kg</p>
+  </header>
+
+  <main class="layout">
+    <!-- Panel izquierdo -->
+    <section class="left">
+      <div class="canvas-wrap">
+        <canvas id="robotCanvas" width="600" height="600"></canvas>
+      </div>
+
+      <fieldset class="controls">
+        <legend>Controles del TCP</legend>
+        <div class="row">
+          <label for="xd">x<sub>d</sub> [m]</label>
+          <input id="xd" type="number" step="0.01" value="0.3" />
+          <label for="yd">y<sub>d</sub> [m]</label>
+          <input id="yd" type="number" step="0.01" value="0.3" />
+        </div>
+        <div class="row">
+          <label for="kp">K<sub>p</sub></label>
+          <input id="kp" type="number" step="0.1" value="50" />
+          <label for="kd">K<sub>d</sub></label>
+          <input id="kd" type="number" step="0.1" value="10" />
+        </div>
+        <div class="row">
+          <button id="btnSimulate">Simular Dinámica + PD</button>
+          <button id="btnReset">Reset</button>
+        </div>
+      </fieldset>
+    </section>
+
+    <!-- Panel derecho -->
+    <section class="right">
+      <div class="plot">
+        <h3>x vs tiempo (deseado vs real)</h3>
+        <canvas id="chartX"></canvas>
+      </div>
+      <div class="plot">
+        <h3>Errores e₁ y e₂</h3>
+        <canvas id="chartErrors"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>Hecho por: Irving • EP2 Robótica</small>
+  </footer>
+
+  <script src="app_ep2.js" defer></script>
+</body>
+</html>
